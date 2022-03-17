@@ -9,6 +9,10 @@ public class Conta {
     private double saldo;
     private Date dataAbertura;
 
+    public Conta(String nomeTitular) {
+        this.nomeTitular = nomeTitular;
+    }
+
     public void sacarDinheiro(double valor){
         this.saldo -= valor;
     }
