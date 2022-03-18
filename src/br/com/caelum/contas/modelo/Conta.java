@@ -39,6 +39,8 @@ public abstract class Conta {
     public void depositar(double valor){
         if(valor > 0){
             this.saldo += valor;
+        }else{
+            throw new IllegalArgumentException("O valor informado é menor que 0");
         }
 
 

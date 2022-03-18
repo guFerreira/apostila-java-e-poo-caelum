@@ -1,8 +1,8 @@
 package br.com.caelum.contas.main;
 
 import br.com.caelum.contas.modelo.Conta;
-import br.com.ubots.estagio.ContaCorrente;
-import br.com.ubots.estagio.ContaPoupanca;
+import br.com.caelum.contas.modelo.ContaCorrente;
+import br.com.caelum.contas.modelo.ContaPoupanca;
 
 class TestaErro {
     public static void main(String[] args) {
