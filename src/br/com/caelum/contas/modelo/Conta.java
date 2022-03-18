@@ -2,7 +2,7 @@ package br.com.caelum.contas.modelo;
 
 import java.util.Date;
 
-public class Conta {
+public abstract class Conta {
     private int id;
     private static int totalDeContas;
     private String nomeTitular;
@@ -23,6 +23,9 @@ public class Conta {
         this.agencia = agencia;
     }
 
+    public abstract String getTipo();
+
+
     public void saca(double valor){
         if(this.saldo >= valor){
             this.saldo -= valor;
@@ -30,9 +33,6 @@ public class Conta {
 
     }
 
-    public String getTipo(){
-        return "Conta";
-    }
     public void depositar(double valor){
         if(valor > 0){
             this.saldo += valor;
@@ -53,6 +53,7 @@ public class Conta {
     @Override
     public String toString() {
         return "Conta{" +
+                "tipo='" + this.getTipo() + '\'' +
                 "nomeTitular='" + nomeTitular + '\'' +
                 ", numero=" + numero +
                 ", agencia='" + agencia + '\'' +
