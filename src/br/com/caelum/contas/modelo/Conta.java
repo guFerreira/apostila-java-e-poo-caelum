@@ -1,8 +1,10 @@
-package capitulo4;
+package br.com.caelum.contas.modelo;
 
 import java.util.Date;
 
 public class Conta {
+    private int id;
+    private static int totalDeContas;
     private String nomeTitular;
     private int numero;
     private String agencia;
@@ -10,22 +12,40 @@ public class Conta {
     private Date dataAbertura;
 
     public Conta(String nomeTitular) {
+        this.totalDeContas++;
+        this.id = this.totalDeContas;
         this.nomeTitular = nomeTitular;
     }
 
-    public void sacarDinheiro(double valor){
-        this.saldo -= valor;
+    public Conta(String nomeTitular, int numero, String agencia) {
+        this.nomeTitular = nomeTitular;
+        this.numero = numero;
+        this.agencia = agencia;
     }
 
+    public void saca(double valor){
+        if(this.saldo >= valor){
+            this.saldo -= valor;
+        }
+
+    }
+
+    public String getTipo(){
+        return "Conta";
+    }
     public void depositar(double valor){
-        this.saldo += valor;
+        if(valor > 0){
+            this.saldo += valor;
+        }
+
+
     }
 
     public double calcularRendimento(){
         return this.saldo * 0.1f;
     }
 
-    public void transferirDinheiro(Conta conta, double valor){
+    public void transfere(Conta conta, double valor){
         this.saldo -= valor;
         conta.depositar(valor);
     }
@@ -71,15 +91,23 @@ public class Conta {
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
     public Date getDataAbertura() {
         return dataAbertura;
     }
 
     public void setDataAbertura(Date dataAbertura) {
         this.dataAbertura = dataAbertura;
+    }
+
+    public static int getTotalDeContas() {
+        return totalDeContas;
+    }
+
+    public static void setTotalDeContas(int totalDeContas) {
+        Conta.totalDeContas = totalDeContas;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
     }
 }
