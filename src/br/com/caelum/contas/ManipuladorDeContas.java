@@ -1,7 +1,9 @@
-package br.com.ubots.estagio;
+package br.com.caelum.contas;
 
 import br.com.caelum.contas.modelo.Conta;
 import br.com.caelum.javafx.api.util.Evento;
+import br.com.ubots.estagio.ContaCorrente;
+import br.com.ubots.estagio.ContaPoupanca;
 
 public class ManipuladorDeContas {
 
