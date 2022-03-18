@@ -1,5 +1,7 @@
 package br.com.caelum.contas.modelo;
 
+import br.com.caelum.contas.exceptions.SaldoInsuficienteException;
+
 import java.util.Date;
 
 public abstract class Conta {
@@ -29,8 +31,9 @@ public abstract class Conta {
     public void saca(double valor){
         if(this.saldo >= valor){
             this.saldo -= valor;
+        }else{
+            throw new SaldoInsuficienteException("O saldo da conta é insuficiente");
         }
-
     }
 
     public void depositar(double valor){
