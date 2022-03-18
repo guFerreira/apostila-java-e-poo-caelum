@@ -1,6 +1,6 @@
 package br.com.ubots.estagio;
 
-public class Gerente extends Funcionario{
+public class Gerente extends Funcionario implements Autenticavel{
     private int senha;
     private int numeroDeFuncionariosGerenciados;
     public Gerente(String nome, String cpf, double salario) {
@@ -12,6 +12,7 @@ public class Gerente extends Funcionario{
         return this.getSalario() * 0.14f + 1000;
     }
 
+    @Override
     public boolean autentica(int senha) {
         if (this.senha == senha) {
             System.out.println("Acesso Permitido!");

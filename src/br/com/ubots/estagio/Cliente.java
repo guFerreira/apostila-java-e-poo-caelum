@@ -1,6 +1,6 @@
 package br.com.ubots.estagio;
 
-public class Cliente {
+public class Cliente implements Autenticavel{
     private String nome;
     private String endereço;
     private String cpf;
@@ -36,5 +36,10 @@ public class Cliente {
 
     public void setIdade(int idade) {
         this.idade = idade;
+    }
+
+    @Override
+    public boolean autentica(int senha) {
+        return false;
     }
 }
