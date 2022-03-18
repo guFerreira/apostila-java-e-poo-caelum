@@ -10,9 +10,9 @@ public class TesteBonificacoes {
         c.registra(new Gerente("Gustavo","1233123",4000));
         c.registra(new Gerente("Ana","4124124",4500));
 
-        Funcionario f = new Funcionario("Funcionario teste","41255523",2000);
-
-        c.registra(f);
+        //o código abaixo não compila mais pq a classe agora é abstrata!
+        //Funcionario f = new Funcionario("Funcionario teste","41255523",2000);
+        //c.registra(f);
         System.out.println(c.getTotalDeBonificacoes());
     }
 }
