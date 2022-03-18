@@ -1,6 +1,7 @@
-package br.com.ubots.estagio;
+package br.com.caelum.contas.modelo;
 
 import br.com.caelum.contas.modelo.Conta;
+import br.com.ubots.estagio.Tributavel;
 
 public class ContaCorrente extends Conta implements Tributavel {
     public ContaCorrente(String nomeTitular) {
@@ -17,7 +18,11 @@ public class ContaCorrente extends Conta implements Tributavel {
     }
 
     public void saca(double valor){
-        super.saca(valor - 0.10f);
+        if(valor > this.getSaldo() || valor < 0){
+            throw new IllegalArgumentException("O valor informado para saque é inválido");
+        }else {
+            super.saca(valor - 0.10f);
+        }
     }
 
     @Override
