@@ -1,7 +1,5 @@
 package capitulo11.exercicioOpcional;
 
-import br.com.ubots.estagio.Tributavel;
-
 import java.util.Date;
 
 public class ContaCorrente implements ContaTributavel {

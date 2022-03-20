@@ -1,4 +1,4 @@
-package br.com.ubots.estagio;
+package br.com.caelum.contas.modelo;
 
 public abstract class Funcionario {
     private String nome;

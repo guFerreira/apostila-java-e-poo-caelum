@@ -1,8 +1,5 @@
 package br.com.caelum.contas.modelo;
 
-import br.com.caelum.contas.modelo.Conta;
-import br.com.ubots.estagio.Tributavel;
-
 public class ContaCorrente extends Conta implements Tributavel {
     public ContaCorrente(String nomeTitular) {
         super(nomeTitular);

@@ -3,24 +3,26 @@ package br.com.caelum.contas.modelo;
 import br.com.caelum.contas.exceptions.SaldoInsuficienteException;
 
 import java.util.Date;
+import java.util.Locale;
+import java.util.Objects;
 
 public abstract class Conta {
     private int id;
     private static int totalDeContas;
-    private String nomeTitular;
-    private int numero;
-    private String agencia;
-    private double saldo;
+    protected String titular;
+    protected int numero;
+    protected String agencia;
+    protected double saldo;
     private Date dataAbertura;
 
     public Conta(String nomeTitular) {
         this.totalDeContas++;
         this.id = this.totalDeContas;
-        this.nomeTitular = nomeTitular;
+        this.titular = nomeTitular;
     }
 
     public Conta(String nomeTitular, int numero, String agencia) {
-        this.nomeTitular = nomeTitular;
+        this.titular = nomeTitular;
         this.numero = numero;
         this.agencia = agencia;
     }
@@ -57,24 +59,38 @@ public abstract class Conta {
 
     @Override
     public String toString() {
-        return "Conta{" +
+        String s = "Conta{" +
                 "tipo='" + this.getTipo() + '\'' +
-                "nomeTitular='" + nomeTitular + '\'' +
+                "nomeTitular='" + titular + '\'' +
                 ", numero=" + numero +
                 ", agencia='" + agencia + '\'' +
                 ", saldo=" + saldo +
                 ", data=" + dataAbertura +
                 '}';
+        return s.toUpperCase();
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Conta conta = (Conta) o;
+        return numero == conta.numero && agencia.equals(conta.agencia);
 
-    public String getNomeTitular() {
-        return nomeTitular;
     }
 
-    public void setNomeTitular(String nomeTitular) {
-        this.nomeTitular = nomeTitular;
+    @Override
+    public int hashCode() {
+        return Objects.hash(numero, agencia);
+    }
+
+    public String getTitular() {
+        return titular;
+    }
+
+    public void setTitular(String titular) {
+        this.titular = titular;
     }
 
     public int getNumero() {

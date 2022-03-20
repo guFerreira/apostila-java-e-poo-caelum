@@ -1,7 +1,7 @@
 package br.com.caelum.contas.main;
 
 import br.com.caelum.contas.modelo.ContaCorrente;
-import br.com.ubots.estagio.Tributavel;
+import br.com.caelum.contas.modelo.Tributavel;
 
 public class TestaTributavel {
     public static void main(String[] args) {

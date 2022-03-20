@@ -1,7 +1,7 @@
 package br.com.caelum.contas;
 
 import br.com.caelum.javafx.api.util.Evento;
-import br.com.ubots.estagio.Tributavel;
+import br.com.caelum.contas.modelo.Tributavel;
 
 public class ManipuladorDeTributaveis {
     private double total;

@@ -13,7 +13,7 @@ public class ManipuladorDeContas {
         if (tipo.equals("Conta Corrente")){
             this.conta = new ContaCorrente(evento.getString("titular"),
                     evento.getInt("numero"), evento.getString("agencia"));
-        }else if(tipo.equals("Conta Poupanca")){
+        }else{
             this.conta = new ContaPoupanca(evento.getString("titular"),
                     evento.getInt("numero"), evento.getString("agencia"));
         }
@@ -31,5 +31,14 @@ public class ManipuladorDeContas {
     public void transfere(Evento evento){
         this.conta.transfere((Conta) evento.getSelecionadoNoCombo("destino"),
                 evento.getDouble("valor"));
+    }
+
+
+    public Conta getConta() {
+        return conta;
+    }
+
+    public void setConta(Conta conta) {
+        this.conta = conta;
     }
 }
