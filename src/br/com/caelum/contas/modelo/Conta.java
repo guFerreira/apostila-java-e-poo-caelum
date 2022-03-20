@@ -73,14 +73,12 @@ public abstract class Conta  implements Comparable<Conta>{
         return s.toUpperCase();
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Conta conta = (Conta) o;
         return numero == conta.numero && agencia.equals(conta.agencia);
-
     }
 
     @Override
