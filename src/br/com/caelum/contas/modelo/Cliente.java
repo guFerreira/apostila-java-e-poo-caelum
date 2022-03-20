@@ -1,4 +1,4 @@
-package br.com.ubots.estagio;
+package br.com.caelum.contas.modelo;
 
 public class Cliente implements Autenticavel{
     private String nome;

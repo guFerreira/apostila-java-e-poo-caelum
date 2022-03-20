@@ -1,4 +1,4 @@
-package br.com.ubots.estagio;
+package br.com.caelum.contas.modelo;
 
 public class Diretor extends Gerente implements Autenticavel{
     public Diretor(String nome, String cpf, double salario) {

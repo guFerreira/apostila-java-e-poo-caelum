@@ -1,8 +1,7 @@
 package br.com.caelum.contas.main;
 
-import br.com.ubots.estagio.ControleDeBonificacoes;
-import br.com.ubots.estagio.Funcionario;
-import br.com.ubots.estagio.Gerente;
+import br.com.caelum.contas.modelo.ControleDeBonificacoes;
+import br.com.caelum.contas.modelo.Gerente;
 
 public class TesteBonificacoes {
     public static void main(String[] args) {
