@@ -5,6 +5,9 @@ import br.com.caelum.javafx.api.util.Evento;
 import br.com.caelum.contas.modelo.ContaCorrente;
 import br.com.caelum.contas.modelo.ContaPoupanca;
 
+import java.util.Collections;
+import java.util.List;
+
 public class ManipuladorDeContas {
 
     private Conta conta;
@@ -33,6 +36,10 @@ public class ManipuladorDeContas {
                 evento.getDouble("valor"));
     }
 
+    public void ordenaLista(Evento evento){
+        List<Conta> contas = evento.getLista("destino");
+        Collections.sort(contas);
+    }
 
     public Conta getConta() {
         return conta;

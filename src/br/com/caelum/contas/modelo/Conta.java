@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 
-public abstract class Conta {
+public abstract class Conta  implements Comparable<Conta>{
     private int id;
     private static int totalDeContas;
     protected String titular;
@@ -58,15 +58,18 @@ public abstract class Conta {
     }
 
     @Override
+    public int compareTo(Conta outraConta) {
+        return this.titular.compareTo(outraConta.titular);
+    }
+    @Override
     public String toString() {
-        String s = "Conta{" +
+        String s = "Conta{\n" +
                 "tipo='" + this.getTipo() + '\'' +
                 "nomeTitular='" + titular + '\'' +
                 ", numero=" + numero +
                 ", agencia='" + agencia + '\'' +
                 ", saldo=" + saldo +
-                ", data=" + dataAbertura +
-                '}';
+                "\n}\n";
         return s.toUpperCase();
     }
 
