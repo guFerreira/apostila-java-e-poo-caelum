@@ -9,7 +9,7 @@ public class TestaArrays {
 
         for (int i =0; i < contas.length;i++){
             Conta c = new ContaCorrente("Conta teste");
-            c.depositar(i*1000);
+            c.depositar(i*1000 + 10);
             contas[i] = c;
         }
 
