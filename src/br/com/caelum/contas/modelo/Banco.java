@@ -1,52 +1,52 @@
 package br.com.caelum.contas.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Banco {
     private String nome;
     private int numero;
-    private Conta[] contas;
+    private List<Conta> contas;
 
     public Banco(String nome, int numero) {
         this.nome = nome;
         this.numero = numero;
-        this.contas = new ContaCorrente[10];
+        this.contas = new ArrayList<Conta>();
     }
 
     public void adiciona(Conta conta) {
-        int contador = 1;
-        for (int i = 0; i < this.contas.length; i++) {
-            if (this.contas[i] == null){
-                this.contas[i] = conta;
-                break;
-            }
-            contador++;
-        }
-        if (contador == this.contas.length){
-            System.out.println("Lista está cheia");
-            Conta[] novoArray = new Conta[this.contas.length *2];
-            for (int i =0; i < contador; i++){
-                novoArray[i]= this.contas[i];
-            }
-            this.contas = novoArray;
-            this.adiciona(conta);
-        }
+        this.contas.add(conta);
+
     }
 
-    public void mostrarContas(){
-        for (Conta conta:this.contas){
+    public Conta pega(int i) {
+        return this.contas.get(i);
+    }
+
+    public int pegaQuantidadeDeContas() {
+        return this.contas.size();
+    }
+
+    public Conta buscaPorTitular(String nome) {
+        for (Conta c: this.contas) {
+            if (c.titular.equals(nome)){
+                return c;
+            }
+        }
+        return null;
+    }
+
+    public void mostrarContas() {
+        for (Conta conta : this.contas) {
             if (conta != null)
-                System.out.println("Conta "+ conta.toString());
+                System.out.println("Conta " + conta.toString());
             else
                 break;
         }
     }
 
-    public boolean contem(Conta conta){
-        for (int i =0; i < contas.length;i++){
-            if (this.contas.equals(conta)){
-                return true;
-            }
-        }
-        return false;
+    public boolean contem(Conta conta) {
+        return this.contas.contains(conta);
     }
 
     public String getNome() {
@@ -57,7 +57,4 @@ public class Banco {
         return numero;
     }
 
-    public Conta[] getContas() {
-        return contas;
-    }
 }
