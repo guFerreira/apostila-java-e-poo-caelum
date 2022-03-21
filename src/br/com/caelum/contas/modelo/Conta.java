@@ -21,6 +21,13 @@ public abstract class Conta  implements Comparable<Conta>{
         this.titular = nomeTitular;
     }
 
+    public Conta(int numero, String agencia,String titular, double saldo) {
+        this.titular = titular;
+        this.numero = numero;
+        this.agencia = agencia;
+        this.saldo = saldo;
+    }
+
     public Conta(String nomeTitular, int numero, String agencia) {
         this.titular = nomeTitular;
         this.numero = numero;
