@@ -11,6 +11,10 @@ public class ContaPoupanca extends Conta {
         super(nomeTitular, numero, agencia);
     }
 
+    public ContaPoupanca(int numero, String agencia, String titular, double saldo) {
+        super(numero, agencia, titular, saldo);
+    }
+
     @Override
     public String getTipo(){
         return "Conta Poupanca";
