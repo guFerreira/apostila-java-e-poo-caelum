@@ -16,4 +16,8 @@ public class ManipuladorDeTributaveis {
 
         }
     }
+
+    public double getTotal() {
+        return total;
+    }
 }
